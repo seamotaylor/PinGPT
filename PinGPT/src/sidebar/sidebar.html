@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinGPT - ChatGPT Bookmark Manager</title>
+    <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+    <div class="sidebar">
+        <header class="sidebar-header">
+            <h1>📌 PinGPT</h1>
+            <p id="bookmark-stats">Loading...</p>
+        </header>
+
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <input type="text" id="search-input" placeholder="Search bookmarks...">
+                <button id="clear-search" class="clear-search-btn" style="display: none;">✕</button>
+            </div>
+        </div>
+
+        <div class="toolbar">
+            <button id="refresh-bookmarks" class="toolbar-btn" title="Refresh bookmarks">
+                🔄 Refresh
+            </button>
+        </div>
+
+        <div id="bookmark-list" class="bookmark-list">
+            <!-- Bookmarks will be dynamically populated here -->
+        </div>
+
+        <div class="manual-bookmark-section">
+            <h3>Add Manual Bookmark</h3>
+            <div class="manual-bookmark-form">
+                <input type="text" id="bookmark-title" placeholder="Bookmark title">
+                <input type="url" id="bookmark-url" placeholder="ChatGPT URL">
+                <button id="add-bookmark-btn" class="add-manual-btn">Add Bookmark</button>
+            </div>
+        </div>
+
+        <footer class="sidebar-footer">
+            <p>PinGPT v1.0 - ChatGPT Bookmark Manager</p>
+        </footer>
+    </div>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>

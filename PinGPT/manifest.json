@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "PinGPT",
+  "version": "1.0",
+  "description": "A Chrome extension to bookmark and organize ChatGPT conversations with content extraction.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://chat.openai.com/*",
+    "*://chatgpt.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://chat.openai.com/*",
+        "*://chatgpt.com/*"
+      ],
+      "js": ["src/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "src/sidebar/sidebar.html",
+    "default_title": "PinGPT - ChatGPT Bookmark Manager",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "commands": {
+    "bookmark-current-chat": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Bookmark current ChatGPT conversation"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["src/sidebar/sidebar.html", "src/sidebar/sidebar.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
